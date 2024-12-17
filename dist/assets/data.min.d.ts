@@ -1,31 +1,3 @@
-import { Identity } from '../app/types/identity.types';
-
-interface NavTab {
-    id: string;
-    name: string;
-    placement: string;
-}
-
-interface Progress {
-    name: string;
-    value: number;
-}
-
-interface RoadmapItem {
-    framework: string;
-    launch_core: string;
-    estimatedtime: string;
-    percentage: string;
-    textAlignment: string;
-    animationClass: string;
-}
-
-interface Module {
-    description: string;
-    image: string;
-    animationClass: string;
-}
-
 declare const data: {
     identity: {
         name: string;
@@ -37,8 +9,13 @@ declare const data: {
         links: string[];
     };
     About: {
-        NavTabs: NavTab[];
+        NavTabs: Array<{
+            id: string;
+            name: string;
+            placement: string;
+        }>;
         image: string;
+        aboutImage: string;
         name: string;
         about: string;
         vision: Array<{
@@ -50,21 +27,50 @@ declare const data: {
             value: number;
             description: string;
         }>>;
-        roadmap: RoadmapItem[];
+        roadmap: Array<{
+            framework: string;
+            launch_core: string;
+            estimatedtime: string;
+            percentage: string;
+            textAlignment: string;
+            animationClass: string;
+        }>;
     };
-    modules: Module[];
-    Contact: any[];
+    modules: Array<{
+        title: string;
+        description: string;
+        image: string;
+        animationClass: string;
+    }>;
+    contact: {
+        cards: Array<{
+            title: string;
+            description: string;
+        }>;
+    };
     Footer: {
         citation: {
             name: string;
             icon: string;
+            link?: string;
         }
     };
     Quote: {
         quote: string;
         author: string;
     };
-    Articles: any[];
+    Articles: Array<{
+        title: string;
+        subtitle: string;
+        date: string;
+        description: string;
+        link: string;
+        class: string;
+    }>;
 };
 
-export type AppData = typeof data; 
+export default data;
+
+interface Window {
+    data: typeof data;
+} 

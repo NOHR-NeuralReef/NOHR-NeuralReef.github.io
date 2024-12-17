@@ -2,14 +2,25 @@
 window.addEventListener('load', async () => {
     try {
         console.log('App loader started');
-        // Get base href from the DOM
-        const baseHref = document.querySelector('base').getAttribute('href') || '/';
-        console.log('Base href:', baseHref);
-        
+        // Check if data is loaded
+        if (!window.data) {
+            console.error('Data not loaded!');
+            return;
+        }
+        console.log('Data loaded:', window.data);
+        console.log('Quote data:', window.data.Quote);
+        console.log('Contact data:', window.data.contact);
+
         // Initialize particles
         if (typeof particlesJS !== 'undefined') {
             particlesJS('particles-js', {
-                // your particles config
+                particles: {
+                    number: { value: 80 },
+                    color: { value: '#ff00aa' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5 },
+                    size: { value: 3 }
+                }
             });
         } else {
             console.error('particlesJS not loaded');
