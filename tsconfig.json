@@ -45,15 +45,10 @@
 	],
 	"include": [
 		"src/**/*.ts",
-		"src/**/*.d.ts",
+		"src/**/*.d.ts"
 	],
 	"exclude": [
 		"node_modules",
-		"dist",
-		"playwright-report",
-		"e2e",
-		".angular",
-		"src/environments",
-		"test-results"
+		"dist"
 	]
 }
