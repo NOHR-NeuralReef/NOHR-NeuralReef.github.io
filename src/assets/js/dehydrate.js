@@ -1,29 +1,32 @@
-// Dehydrate data into a global variable
-window.DEHYDRATED_DATA = {
-    identity: {
-        name: 'Neural Reef',
-        image: 'assets/images/neural-reef-logo.png'
-    },
-    NavBar: {
-        name: 'Neural Reef',
-        image: 'assets/images/neural-reef-logo.png',
-        links: ['home', 'about', 'modules', 'contact']
+// Initialize window.data if not already set
+if (!window.data) {
+    window.data = {};
+}
+
+// Ensure data structure exists
+window.data = {
+    ...window.data,
+    Quote: {
+        quote: "The future of AI is personal, private, and secure. Your data, your control.",
+        author: "Johann Nohr"
     },
     contact: {
         cards: [
             {
                 title: "Email",
-                description: "secure@neuralreef.ai"
+                description: "johann@nohr.com"
             },
             {
                 title: "GitHub",
-                description: "github.com/neural-reef"
+                description: "github.com/NOHR-NeuralReef"
             },
             {
                 title: "Network",
-                description: "Join our decentralized network"
+                description: "Join NOHR Neural Reef Network"
             }
         ]
-    },
-    // ... other data
-}; 
+    }
+};
+
+// Log data initialization
+console.log('Dehydrate.js: Data initialized', window.data); 
