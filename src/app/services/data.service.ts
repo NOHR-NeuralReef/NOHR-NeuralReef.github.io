@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Quote, Contact, About } from '../interfaces/data.types';
 
 @Injectable({
@@ -18,20 +17,13 @@ export class DataService {
     quote() {
         return this.data?.Quote as Quote;
     }
+
     contact() {
-        const contact = this.data?.Contact;
-        if (Array.isArray(contact)) {
-            throw new Error('Contact data is in incorrect format');
-        }
-        return contact as Contact;
+        return this.data?.contact as Contact;
     }
 
     about() {
-        const about = this.data?.About;
-        if (Array.isArray(about)) {
-            throw new Error('About data is in incorrect format'); 
-        }
-        return about as About;
+        return this.data?.About as About;
     }
 
     modules() {

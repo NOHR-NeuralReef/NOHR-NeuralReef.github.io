@@ -16,12 +16,28 @@ export interface About {
         name: string;
         placement: string;
     }>;
-    about: string;
+    image: string;
     aboutImage: string;
     name: string;
-    progresss: any[][];
-    roadmap: any[];
-    vision: any[];
+    about: string;
+    vision: Array<{
+        title: string;
+        description: string;
+    }>;
+    progresss: Array<Array<{
+        name: string;
+        value: number;
+        description: string;
+    }>>;
+    roadmap: Array<{
+        framework: string;
+        launch_core: string;
+        estimatedtime: string;
+        percentage: string;
+        textAlignment: string;
+        animationClass: string;
+    }>;
 }
 
+// Add other interfaces as needed 
 // Add other interfaces as needed 
