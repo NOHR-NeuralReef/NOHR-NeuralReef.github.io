@@ -18,7 +18,12 @@ declare global {
             Home: any;
             About: any;
             modules: any[];
-            Contact: any[];
+            contact: {
+                cards: Array<{
+                    title: string;
+                    description: string;
+                }>;
+            };
             Footer: {
                 citation: {
                     name: string;
