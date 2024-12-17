@@ -1,0 +1,112 @@
+<section id="about">
+    <div class="about-content">
+        <!-- Tab Navigation -->
+        <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <li id="selector"></li>
+                <li *ngFor="let tab of aboutData().NavTabs" 
+                    class="nav-item" 
+                    (click)="changeActiveTab(tab.id)"
+                    role="presentation">
+                    <a href="javascript:void(0)" 
+                       rel="noreferrer" 
+                       class="nav-link" 
+                       [ngClass]="{'active': activeTab === tab.id}" 
+                       [id]="tab.id + '-tab'"
+                       [attr.aria-selected]="activeTab === tab.id"
+                       [attr.aria-controls]="tab.id">
+                        {{ tab.name }}
+                    </a>
+                </li>
+            </div>
+        </nav>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="myTabContent">
+            <!-- About Tab -->
+            <div class="tab-pane fade" 
+                 [class.active]="activeTab === 'about'"
+                 [class.show]="activeTab === 'about'"
+                 id="about" 
+                 aria-labelledby="about-tab">
+                <div class="about-container">
+                    <!-- Left Column (2/3 width) -->
+                    <div class="about-content-column">
+                        <div class="about-text">
+                            <ng-container *ngFor="let paragraph of getAboutText().split('\n\n')">
+                                <p class="about-paragraph">{{paragraph}}</p>
+                            </ng-container>
+                            <button 
+                                *ngIf="aboutData().about.length > PREVIEW_LENGTH"
+                                class="expand-button" 
+                                (click)="toggleExpand()">
+                                {{ isExpanded ? 'Show Less' : 'Read More' }}
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column (1/3 width) -->
+                    <div class="about-image-column">
+                        <div class="about-img">
+                            <img [src]="'assets/images/' + aboutData().aboutImage + '.webp'"
+                                 [alt]="aboutData().name"
+                                 loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Tab -->
+            <div class="tab-pane fade" 
+                 [class.active]="activeTab === 'progress'"
+                 [class.show]="activeTab === 'progress'"
+                 id="progress" 
+                 aria-labelledby="progress-tab">
+                <div class="progress-grid">
+                    <div class="progress-card" 
+                         *ngFor="let skill of aboutData().progresss.flat()">
+                        <h3 class="progress-card-title">{{skill.name}}</h3>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" 
+                                 [style.width.%]="skill.value"
+                                 [style.background]="'linear-gradient(to right, #ff00aa, #00FFDD)'">
+                            </div>
+                        </div>
+                        <p class="progress-card-description">{{skill.description}}</p>
+                        <p class="progress-value">{{skill.value}}% Complete</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roadmap Tab -->
+            <div class="tab-pane fade" 
+                 [class.active]="activeTab === 'roadmap'"
+                 [class.show]="activeTab === 'roadmap'"
+                 id="roadmap" 
+                 aria-labelledby="roadmap-tab">
+                <div class="roadmap-grid">
+                    <div class="roadmap-card" *ngFor="let item of aboutData().roadmap">
+                        <h3 class="roadmap-title">{{item.framework}}</h3>
+                        <div class="roadmap-core">{{item.launch_core}}</div>
+                        <div class="roadmap-time">{{item.estimatedtime}}</div>
+                        <div class="roadmap-status">{{item.percentage}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision Tab -->
+            <div class="tab-pane fade" 
+                 [class.active]="activeTab === 'vision'"
+                 [class.show]="activeTab === 'vision'"
+                 id="vision" 
+                 aria-labelledby="vision-tab">
+                <div class="vision-grid">
+                    <div class="vision-card" *ngFor="let item of aboutData().vision">
+                        <h3 class="vision-title">{{item.title}}</h3>
+                        <p class="vision-description">{{item.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

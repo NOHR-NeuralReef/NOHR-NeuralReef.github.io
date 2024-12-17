@@ -1,0 +1,157 @@
+/* Add base styles */
+@import 'assets/css/animate.min.css'; 
+
+/* Article Modal Styles */
+.article-modal .modal-content {
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    color: white;
+    max-height: 90vh;
+}
+
+.article-modal .modal-dialog {
+    max-width: 800px;
+}
+
+.article-modal .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+}
+
+.article-modal .modal-body {
+    padding: 2rem;
+}
+
+.article-modal .btn-close {
+    color: white;
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Markdown Content Styles */
+.article-modal markdown {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.article-modal markdown h1,
+.article-modal markdown h2,
+.article-modal markdown h3 {
+    color: #ff00aa;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.article-modal markdown p {
+    margin-bottom: 1rem;
+}
+
+.article-modal markdown ul,
+.article-modal markdown ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+.article-modal markdown li {
+    margin-bottom: 0.5rem;
+}
+
+.article-modal markdown em {
+    color: #00FFDD;
+} 
+
+/* Modal Styles */
+.article-modal-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.article-modal-dialog {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    margin: 1.75rem auto;
+    pointer-events: auto;
+    z-index: 1051;
+}
+
+.article-modal-dialog .modal-content {
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 2rem;
+}
+
+/* Modal Content Styles */
+.article-modal-dialog markdown {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.article-modal-dialog h1,
+.article-modal-dialog h2,
+.article-modal-dialog h3 {
+    color: #ff00aa;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.article-modal-dialog p {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.article-modal-dialog ul,
+.article-modal-dialog ol {
+    color: white;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+.article-modal-dialog li {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.article-modal-dialog em {
+    color: #00FFDD;
+}
+
+.modal-backdrop {
+    display: none !important;
+} 
+
+/* Add container width classes */
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1720px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .container {
+        max-width: 1140px;
+    }
+} 

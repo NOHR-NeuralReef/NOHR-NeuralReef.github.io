@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/Organization">
+<head>
+  <!-- Dehydrated data must load first -->
+  <script src="assets/js/dehydrate.js"></script>
+    
+    <!-- Initialize data structure first -->
+  <script src="assets/js/init-data.js"></script>
+    
+    <!-- Load data first -->
+    <script src="assets/data.min.js"></script>
+    <script src="assets/js/typed.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/vanilla-tilt.min.js"></script>
+    <script src="assets/js/particles.min.js"></script>
+    <script src="assets/js/app-loader.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Bruno+Ace+SC&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Michroma&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <style>
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: 'Michroma', sans-serif;  /* Base font */
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+            margin: 0;
+            padding: 0;
+            font-weight: 400;
+            line-height: 1.5;
+            font-size: 15px;
+            color: #300000;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -ms-user-select: none;
+            user-select: none;
+            word-wrap: break-word;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        :root {
+            /* Original Theme Colors */
+            --theme-dark: #262626;
+            --theme-darker: #121212;
+            --theme-black: #090909;
+            --theme-text: #300000;
+            
+            /* Splash Animation Colors */
+            --splash-pink: #ff00aa;
+            --splash-cyan: #00FFDD;
+            --splash-bright-pink: #F41D7E;
+            --splash-neon-pink: rgb(255, 0, 128);
+            --splash-neon-cyan: hsl(172, 100%, 50%);
+            
+            /* Background Colors */
+            --background-dark: #1a1a1a;
+            --background-light: #F5f5f5;
+            
+            --font-title: 'Bruno Ace', cursive;         /* For titles */
+            --font-special: 'Bruno Ace SC', cursive;    /* For special elements */
+            --font-mono: 'Space Mono', monospace;       /* For code/technical */
+            --font-alt: 'Epilogue', sans-serif;         /* Alternative font */
+        }
+    
+        body {
+            background: var(--theme-black);
+        }
+    
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: var(--theme-black);
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+    
+        .splash {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 270px;
+            height: 270px;
+            z-index: 10000;
+        }
+        
+        .splash .splash-circle {
+            position: absolute;
+            border: 2px solid #121212;
+        }
+    
+        .splash .splash-circle.circle-1 {
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            box-shadow: 0 0 10px #000;
+            border-radius: 50%;
+            border-left: 2px solid #ff00aa;
+            border-top: 2px solid #ff00aa;
+            animation: animate 3s linear infinite;
+        }
+    
+        .splash .splash-circle.circle-2 {
+            top: 30px;
+            left: 30px;
+            bottom: 30px;
+            right: 30px;
+            box-shadow: 0 0 10px #000;
+            border-radius: 50%;
+            border-right: 2px solid #00FFDD;
+            border-bottom: 2px solid #00FFDD;
+            animation: animate 3s linear reverse infinite;
+        }
+    
+        .splash .splash-circle .circle-animation {
+            position: absolute;
+            top: calc(50% - 1px);
+            left: 50%;
+            width: 50%;
+            height: 2px;
+            transform-origin: left;
+        }
+    
+        .splash .splash-circle.circle-1 .circle-animation {
+            transform: rotate(-45deg);
+        }
+    
+        .splash .splash-circle.circle-2 .circle-animation {
+            transform: rotate(-45deg);
+        }
+    
+        .splash .splash-circle .circle-animation:before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ff00b3;
+            top: -4px;
+            right: -6px;
+        }
+    
+        .splash .splash-circle.circle-1 .circle-animation:before {
+            background: rgb(255, 0, 128);
+            box-shadow: 0 0 20px #F41D7E,
+                        0 0 40px #ff00aa,
+                        0 0 60px #ff00aa,
+                        0 0 80px #ff00aa,
+                        0 0 100px #ff19a7,
+                        0 0 0 5px rgba(26, 26, 26, 0.1);
+        }
+    
+        .splash .splash-circle.circle-2 .circle-animation:before {
+            background: #00FFDD;
+            box-shadow: 0 0 20px #00FFDD,
+                        0 0 40px #00FFDD,
+                        0 0 60px #00FFDD,
+                        0 0 80px rgb(0, 255, 221),
+                        0 0 100px hsl(172, 100%, 50%),
+                        0 0 0 5px rgba(3,169,244,.1);
+        }
+    
+        @keyframes animate {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    
+        @-webkit-keyframes animate {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    
+        .loader-section {
+            position: fixed;
+            top: 0;
+            width: 51%;
+            height: 100vh;
+            background-color: #090909;
+            z-index: 9998;
+            transition: all .5s ease-out;
+            opacity: 1;
+        }
+    
+        #section-left {
+            left: 0;
+            transform: translateX(0);
+        }
+    
+        #section-right {
+            right: 0;
+            transform: translateX(0);
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="robots" content="all">
+    <base href="/NOHR-NeuralReef.github.io/">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="mask-icon" href="assets/images/safari-pinned-tab.svg" color="#262626">
+    
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#262626">
+    <meta name="msapplication-TileImage" content="assets/images/neural-reef-144x144.png">
+    
+    <!-- Animation and Effects -->
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    
+    <!-- Primary Meta Tags -->
+    <title>NOHR Neural Reef - Personal AI Freedom</title>
+    <meta name="title" content="Neural Reef - Ultra-secure Personal AI">
+    <meta name="description" content="Neural Reef - Ultra-secure, AI-driven smart home system that puts you in complete control of your data. Military-grade encryption, biometric login, and personalized AI companion.">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nohr-neuralreef.github.io/">
+    <link rel="alternate" href="https://nohr-neuralreef.github.io/" hreflang="en">
+    
+    <!-- Theme and Icons -->
+    <meta name="theme-color" content="#262626">
+    <link rel="manifest" href="manifest.webmanifest">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://neuralreef.ai/">
+    <meta property="og:title" content="Neural Reef - Personal AI Freedom">
+    <meta property="og:description" content="Ultra-secure, AI-driven smart home system with military-grade encryption and biometric security.">
+    <meta property="og:image" content="https://neuralreef.ai/assets/images/neural-reef-social.png">
+    
+    <!-- X (formerly Twitter) Card -->
+    <meta name="x:card" content="summary_large_image">
+    <meta name="x:url" content="https://neuralreef.ai/">
+    <meta name="x:title" content="Neural Reef - Personal AI Freedom">
+    <meta name="x:description" content="Ultra-secure, AI-driven smart home system with military-grade encryption and biometric security.">
+    <meta name="x:image" content="https://neuralreef.ai/assets/images/neural-reef-social-x.png">
+  
+
+    <script>
+        // Handle GitHub Pages SPA routing
+        (function() {
+            const redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect !== location.href) {
+                history.replaceState(null, null, redirect);
+            }
+        })();
+    </script>
+
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Neural Reef",
+      "url": "https://neuralreef.ai",
+      "logo": "https://neuralreef.ai/assets/images/neural-reef-logo.png",
+      "description": "Ultra-secure, AI-driven smart home system that puts you in complete control of your data.",
+      "sameAs": [
+        "https://github.com/neural-reef",
+        "https://x.com/neuralreef"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <noscript>Please enable JavaScript to use this application. A text-only version is coming soon.</noscript>
+    
+    <!-- Load data first -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, checking data...');
+            console.log('Data object:', window.data);
+            if (!window.data) {
+                console.error('data.min.js failed to load or initialize');
+            }
+        });
+    </script>
+    
+    <div id="loader" role="progressbar" aria-label="Loading application">
+        <div id="splash" class="splash">
+            <div class="splash-circle circle-1">
+                <div class="circle-animation"></div>
+            </div>
+            <div class="splash-circle circle-2">
+                <div class="circle-animation"></div>
+            </div>
+        </div>
+        <div class="loader-section" id="section-left"></div>
+        <div class="loader-section" id="section-right"></div>
+    </div>
+    
+    <div id="particles-js"></div>
+    <app-root></app-root>
+</body>
+</html>

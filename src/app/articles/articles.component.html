@@ -1,0 +1,22 @@
+<section id="articles" class="articles-section">
+    <div class="container">
+        <h2 class="section-title">Latest Articles</h2>
+        
+        <div class="articles-grid">
+            <div class="article-card" 
+                 *ngFor="let article of articles()"
+                 (click)="openArticle(article)"
+                 [ngClass]="article.class">
+                <div class="article-content">
+                    <div class="article-header">
+                        <span class="article-date">{{article.date}}</span>
+                        <h3 class="article-title">{{article.title}}</h3>
+                        <h4 class="article-subtitle">{{article.subtitle}}</h4>
+                    </div>
+                    <p class="article-description">{{article.description}}</p>
+                    <button class="article-link">Read More →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

@@ -1,0 +1,234 @@
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
+    transition: all .5s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(38, 38, 38, 0.95);
+}
+
+.navbar > .container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 50px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: 0;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 2rem;
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.brand-logo {
+    margin-right: 10px;
+    object-fit: contain;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: #ff00aa;
+    margin-left: 10px;
+}
+
+.navbar-brand:focus,
+.navbar-brand:hover {
+    text-decoration: none;
+    color: #00FFDD;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem;
+    margin: 0 20px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.navbar-nav .nav-link a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link a:hover {
+    color: #00FFDD;
+}
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+}
+
+.navbar-collapse.show {
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    padding: 2rem 0;
+}
+
+.navbar-toggler {
+    z-index: 3;
+    padding: .25rem .75rem;
+    font-size: 1.6rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    margin-top: 5px;
+    margin-bottom: 0;
+    color: #fff;
+    transition: transform 0.6s;
+    transform-origin: center;
+    transition-timing-function: cubic-bezier(0.9,1.65,0.42,0.61);
+}
+
+/* Animation Classes */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar-expand-lg > .container {
+        padding: 0;
+    }
+    
+    .container .navbar-collapse {
+        padding: 2rem 0;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    .container .navbar-collapse.show {
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        left: 0;
+        top: 0;
+    }
+    
+    .nav-icon {
+        width: 72px;
+        height: 72px;
+        padding: 0.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-expand-lg {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+    }
+    
+    .navbar-expand-lg .navbar-nav {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        padding: 0;
+        z-index: 1001;
+    }
+    
+    .navbar-expand-lg .navbar-toggler {
+        display: none;
+    }
+}
+
+.nav-icon {
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease;
+    padding: 1rem;
+}
+
+.nav-link.active .nav-icon {
+    filter: invert(24%) sepia(94%) saturate(6645%) hue-rotate(315deg) brightness(101%) contrast(109%);
+}
+
+.nav-link:hover .nav-icon {
+    filter: brightness(0) invert(1) sepia(1) saturate(10000%) hue-rotate(170deg);  /* Cyan color */
+}
+
+/* Tooltip styling */
+:host ::ng-deep .navbar-tooltip {
+    opacity: 0.9;
+}
+
+:host ::ng-deep .navbar-tooltip .tooltip-inner {
+    background: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: -20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+:host ::ng-deep .navbar-tooltip .arrow::before {
+    display: none;
+}

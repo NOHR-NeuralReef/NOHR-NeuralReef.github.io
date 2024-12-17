@@ -1,0 +1,91 @@
+/* Main Section */
+.bg-home {
+    position: relative;
+    background-image: url(../../assets/images/bgimg.webp);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-color: transparent;
+    opacity: 1;
+}
+
+/* Home Content */
+.home-center {
+    display: table;
+    background-color: transparent;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 11;
+}
+
+.home-desc-center {
+    background-color: transparent;
+    opacity: 1;
+    display: table-cell;
+    vertical-align: middle;
+    text-shadow: 2px 2px 4px rgba(163, 63, 63, 0.5);
+    pointer-events: auto;
+}
+
+.home-title .para-desc {
+    font-size: 18px;
+    max-width: 650px;
+    line-height: 1.8;
+    font-weight: normal;
+    color: #dfdfdf;
+    position: relative;
+    z-index: 7;
+    pointer-events: auto;
+}
+
+.info-text {
+    margin-top: 2rem;
+}
+
+.info-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 7;
+    pointer-events: auto;
+}
+
+.display-3 {
+    font-size: 4.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 7;
+    pointer-events: auto;
+}
+
+/* Responsive Design */
+@media (min-width: 200px) and (max-width: 768px) {
+    .home-title .display-3 {
+        font-size: 44px;
+    }
+}
+
+/* Particles Container */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: transparent;
+    opacity: 1;
+    pointer-events: all;
+}

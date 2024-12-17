@@ -1,0 +1,10 @@
+<section class="section">
+    <div class="contact-grid">
+        @for (card of contactData(); track card.title) {
+            <div class="card">
+                <h4 class="title">{{card.title}}</h4>
+                <p class="text-muted">{{card.description}}</p>
+            </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,891 @@
+/* Main Section Styles */
+#about {
+    background: #000000;
+    position: relative;
+    padding: 8px 0;
+    min-height: 100vh;  /* Full viewport height */
+    overflow: hidden;
+    z-index: 1;  /* Base z-index for the section */
+}
+
+/* Title Styles */
+.about-title {
+    color: #ff00aa;  /* Pink color */
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    padding-left: 50px;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    cursor: pointer;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 50px;
+    position: relative;
+    width: fit-content;
+    margin: 0;
+    padding-left: 50px;
+    min-width: 300px;
+}
+
+.nav-tabs .nav-item {
+    margin-bottom: -1px;
+    flex: 0 1 auto;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding: 6px 10px;
+    border-radius: 25px;
+    font-weight: 600;
+    position: relative;
+    transition-duration: 0.6s;
+    cursor: pointer;
+}
+
+.nav-fill .nav-item {
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Tab Content */
+.tab-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    padding: 2rem 50px;
+}
+
+.tab-pane {
+    position: relative;
+    z-index: 3;
+    transition: opacity 0.15s linear;
+}
+
+.tab-pane.fade {
+    opacity: 0;
+}
+
+.tab-pane.fade.show {
+    opacity: 1;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.tab-pane:not(.active) {
+    display: none;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: #fff;
+}
+
+/* Selector Animation */
+#selector {
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    border-radius: 25px;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    background: rgba(255, 0, 170, 0.2);  /* Semi-transparent pink */
+    box-shadow: 0 0 15px rgba(255, 0, 170, 0.1);
+}
+
+#selector::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: rgba(255, 0, 170, 0.1);
+    border-radius: 25px;
+    filter: blur(8px);
+}
+
+/* Transition animation when changing tabs */
+.nav-tabs .nav-link.active ~ #selector {
+    animation: slideMove 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideMove {
+    0% {
+        transform: scaleX(0.95);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scaleX(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scaleX(1);
+        opacity: 0.8;
+    }
+}
+
+/* About Image */
+.about-img {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-img img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    mask-image: radial-gradient(
+        circle at center,
+        black 40%,
+        rgba(0, 0, 0, 0.8) 60%,
+        rgba(0, 0, 0, 0.4) 80%,
+        transparent 100%
+    );
+    -webkit-mask-image: radial-gradient(
+        circle at center,
+        black 40%,
+        rgba(0, 0, 0, 0.8) 60%,
+        rgba(0, 0, 0, 0.4) 80%,
+        transparent 100%
+    );
+}
+
+.about-img img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Typography */
+small {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+/* Progress Section */
+.progress-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 3;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#about .progress-grid .progress-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    height: 100%;
+    min-height: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 4;
+}
+
+#about .progress-grid .progress-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.progress-card-title {
+    color: #ff00aa;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.progress-card-description {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.progress-value {
+    color: #00FFDD;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    width: 75%;
+}
+
+.timeline-box {
+    padding: 5px;
+    width: 40%;
+    min-height: 150px;
+    position: relative;
+    left: 5%;
+    text-align: right;
+}
+
+.timeline-box::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #ffffff;
+    top: 25%;
+    border-radius: 50%;
+}
+
+.timeline-box:nth-child(2n) {
+    left: 55%;
+}
+
+.timeline-box:nth-child(2n+1)::after {
+    right: -15%;
+}
+
+.timeline-box:nth-child(2n)::after {
+    left: -15%;
+}
+
+.timeline-container {
+    padding: 8px;
+}
+
+#timeline-divider {
+    position: absolute;
+    width: 0;
+    top: 5%;
+    left: calc(50% - 1px);
+    border: 1px dashed #df1a1a;
+    height: 90%;
+}
+
+#timeline-divider .timeline-traveller {
+    position: sticky;
+    top: 135px;
+}
+
+#timeline-divider i {
+    transform: rotate(90deg);
+    margin-top: -35px;
+    display: block;
+    color: #000;
+}
+
+
+.roadmap-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (min-width: 200px) and (max-width: 768px) {
+    #about {
+        background-size: 55%;
+    }
+
+
+
+    .timeline {
+        width: 100%;
+    }
+
+    .timeline-box:nth-child(2n+1)::after {
+        right: -18%;
+    }
+
+    .timeline-box:nth-child(2n)::after {
+        left: -17%;
+    }
+
+    .txt-bg-about::before {
+        padding-top: 15px;
+    }
+}
+
+/* Vision Tab Styles */
+.container-ach {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.box {
+    background: rgba(206, 206, 206, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+}
+
+.ach-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.description {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.txt-bg-modules::before {
+    content: "PROGRESS";
+    position: absolute;
+    font-size: 120px;
+    font-weight: bold;
+    left: 0;
+    right: 0;
+    top: -40px;
+    z-index: -1;
+    opacity: 0.02;
+    text-align: center;
+}
+
+/* Active tab style */
+.nav-tabs .nav-link.active {
+    background-color: #ff00aa;
+    color: #ffffff;
+}
+
+/* Core Technologies Section */
+.core-technologies {
+    color: #00FFDD;  /* Cyan color */
+    font-size: 2rem;
+    margin-top: 2rem;
+    padding-left: 50px;
+}
+
+/* Description Text */
+.about-description {
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    padding-left: 50px;
+    margin-top: 2rem;
+}
+
+/* Roadmap Styles */
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+#about .roadmap-grid .roadmap-card {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+#about .roadmap-grid .roadmap-card:hover {
+    transform: translateY(-5px);
+}
+
+.roadmap-title {
+    color: #ff00aa;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.roadmap-core {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.roadmap-time {
+    color: #00FFDD;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.roadmap-status {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+/* Vision Styles */
+.vision-content {
+    padding: 2rem;
+    color: #ffffff;
+}
+
+.vision-title {
+    color: #ff00aa;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.vision-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 800px;
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#about .vision-grid .vision-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 200px;
+}
+
+#about .vision-grid .vision-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.vision-title {
+    color: #ff00aa;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.vision-description {
+    color: #ffffff;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    flex: 1;
+}
+
+/* Shared Grid Layout for Progress, Roadmap, and Vision */
+.progress-grid,
+.roadmap-grid,
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 columns */
+    grid-template-rows: auto;               /* 4 rows auto-sized */
+    gap: 2rem;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+/* Shared Card Styles */
+#about .progress-card,
+#about .roadmap-card,
+#about .value-item {
+    --card-bg-opacity: 0.05;
+    --card-border-radius: 15px;
+    --card-border-color: rgba(255, 255, 255, 0.1);
+    --card-hover-transform: -5px;
+    --card-transition-speed: 0.3s;
+    
+    background: rgba(255, 255, 255, 0.15) !important;  /* Force override */
+    backdrop-filter: blur(10px);
+    border-radius: var(--card-border-radius);
+    border: 1px solid var(--card-border-color);
+    padding: 1.5rem;
+    height: 100%;
+    transition: all var(--card-transition-speed) ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#about .progress-card:hover,
+#about .roadmap-card:hover,
+#about .value-item:hover {
+    transform: translateY(var(--card-hover-transform));
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Grid */
+@media (max-width: 1200px) {
+    .progress-grid,
+    .roadmap-grid,
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .progress-grid,
+    .roadmap-grid,
+    .values-grid {
+        grid-template-columns: 1fr;    /* 1 column on small screens */
+        padding: 1rem;
+        gap: 1rem;
+    }
+}
+
+/* Title Styles */
+.progress-card-title,
+.roadmap-title,
+.vision-title {
+    color: #ff00aa;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Value Styles */
+.progress-value,
+.roadmap-time {
+    color: #00FFDD;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+/* Description Styles */
+.progress-card-description,
+.roadmap-core,
+.roadmap-status,
+.vision-description {
+    color: #ffffff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* About Section Layout */
+.about-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;  /* 2/3 and 1/3 split */
+    gap: 2rem;
+    padding: 4rem;
+    width: 100%;
+    max-width: 1800px;  /* Increased from default 1400px */
+    margin: 0 auto;
+    align-items: start;
+}
+
+.about-content-column {
+    padding-right: 3rem;
+}
+
+.about-image-column {
+    position: sticky;
+    top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.about-img {
+    width: 100%;
+    max-width: 500px;  /* Control maximum image size */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-img img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-img img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Layout */
+@media (max-width: 1600px) {
+    .about-container {
+        max-width: 1400px;
+        padding: 3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr;  /* Stack on smaller screens */
+        padding: 2rem;
+    }
+    
+    .about-content-column {
+        padding-right: 0;
+    }
+}
+
+/* Progress Bar Styles */
+.progress-bar-container {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s ease-in-out;
+    background: linear-gradient(to right, #ff00aa, #00FFDD);
+    box-shadow: 0 0 10px rgba(255, 0, 170, 0.5);
+}
+
+/* Responsive breakpoints */
+@media (min-width: 1200px) {
+    .progress-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1199px) {
+    .progress-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .progress-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.about-content {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about-text {
+    color: #f7f7f7;
+    font-size: 1rem;
+    line-height: 2;
+    font-family: 'epilogue', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 4px;
+    text-align: justify;
+    background: rgba(36, 34, 34, 0.87);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-text:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Update other text elements for consistency */
+.vision-description,
+.progress-card-description,
+.roadmap-core,
+.roadmap-status {
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-family: 'Michroma', sans-serif;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Headers */
+.vision-title,
+.progress-card-title,
+.roadmap-title {
+    color: #ff00aa;
+    font-size: 1.1rem;
+    font-family: 'Michroma', sans-serif;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+}
+
+.about-paragraph {
+    margin-bottom: 2rem;
+    text-align: justify;
+    white-space: pre-line;
+}
+
+.about-paragraph:first-child {
+    font-size: 1.1rem;
+    color: #ff00aa;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 3px;
+}
+
+.about-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.expand-button {
+    background: none;
+    border: none;
+    color: #ff00aa;
+    font-family: 'Michroma', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #ff00aa;
+    border-radius: 4px;
+}
+
+.expand-button:hover {
+    background: rgba(255, 0, 170, 0.1);
+    transform: translateY(-2px);
+}
+
+.about-text {
+    transition: max-height 0.3s ease-in-out;
+}
+
+/* Floating Animation Keyframes */
+@keyframes floating {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(0.5deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(-0.5deg);
+    }
+    75% {
+        transform: translateY(-5px) rotate(0.5deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Update hover effects for buttons and cards */
+.expand-button {
+    /* ... existing styles ... */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expand-button:hover {
+    background: rgba(255, 0, 170, 0.1);
+    box-shadow: 0 8px 20px rgba(255, 0, 170, 0.2);
+    animation: floating 2s ease-in-out infinite;
+}
+
+.vision-card,
+.progress-card,
+.roadmap-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.vision-card:hover,
+.progress-card:hover,
+.roadmap-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 0, 170, 0.15);
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Make nav tabs float on hover */
+.nav-link {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover {
+    animation: floating 2s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(255, 0, 170, 0.5);
+}
+
+/* Add subtle movement to images */
+.about-img {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-img:hover {
+    animation: floating 4s ease-in-out infinite;
+}
+
+/* Remove duplicate rules */
+.about-section {
+    /* Combine similar properties */
+    background: #000000;
+    padding: 60px 0;
+    position: relative;
+    /* Use shorthand properties */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Combine media queries */
+@media (max-width: 992px) {
+    .about-section,
+    .about-content,
+    .about-image {
+        /* Shared mobile styles */
+        padding: 30px 15px;
+    }
+}
+
+/* Use CSS variables for repeated values */
+:root {
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: rgba(0, 0, 0, 0.2);
+}

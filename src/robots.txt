@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://nohr-neuralreef.github.io/sitemap_index.xml

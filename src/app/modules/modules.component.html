@@ -1,0 +1,28 @@
+<section id="modules" class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h2 class="section-title">Core Modules</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="modules-grid">
+            <div class="module-card" 
+                 *ngFor="let module of modulesData()"
+                 [ngClass]="module.animationClass">
+                <div class="module-content">
+                    <h3 class="module-title">{{module.title}}</h3>
+                    <p class="module-description">{{module.description}}</p>
+                    <div class="module-image">
+                        <img [src]="'assets/images/' + module.image + '.webp'"
+                             onerror="this.src='assets/images/neural-reef-logo.webp'"
+                             [alt]="module.title"
+                             loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

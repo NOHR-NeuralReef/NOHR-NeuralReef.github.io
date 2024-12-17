@@ -1,0 +1,108 @@
+.quote-section {
+    padding: 0;
+    position: relative;
+    background: #000000;
+    color: #f0f0f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    margin: 0;
+}
+
+.quote-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000;
+}
+
+.quote-section .h2 {
+    font-size: 18px;
+    font-weight: 900;
+    color: #f5f5f5;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    margin: 0;
+}
+
+.quote-section blockquote {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Animation Classes */
+.fadeInUp {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.slideInLeft {
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.slideInRight {
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quote-section {
+        height: 180px;
+    }
+    
+    .quote-section .h2 {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .quote-section cite {
+        font-size: 0.9rem;
+    }
+}
+
+.quote-section cite {
+    color: #ff00aa;
+    font-weight: 600;
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}

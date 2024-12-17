@@ -1,0 +1,59 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"baseUrl": "./",
+		"outDir": "./dist/out-tsc",
+		"importHelpers": true,
+		"sourceMap": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"target": "ES2022",
+		"module": "ES2022",
+		"lib": ["ES2022", "dom"],
+		"useDefineForClassFields": false,
+		"experimentalDecorators": true,
+		"typeRoots": [
+			"./node_modules/@types",
+			"./src/app/types"
+		],
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictBindCallApply": true,
+		"noImplicitThis": true,
+		"declaration": false,
+		"downlevelIteration": true,
+		"paths": {
+			"@app/*": ["src/app/*"],
+			"@environments/*": ["src/environments/*"]
+		}
+	},
+	"angularCompilerOptions": {
+		"enableI18nLegacyMessageIdFormat": false,
+		"strictInjectionParameters": true,
+		"strictInputAccessModifiers": true,
+		"strictTemplates": true
+	},
+	"files": [
+		"src/main.ts"
+	],
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+	],
+	"exclude": [
+		"node_modules",
+		"dist",
+		"playwright-report",
+		"e2e",
+		".angular",
+		"src/environments",
+		"test-results"
+	]
+}

@@ -1,0 +1,73 @@
+.section {
+    background: #000000;
+    padding: 30px 0;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.card {
+    --card-bg-opacity: 0.2;
+    --card-border-radius: 15px;
+    --card-border-color: rgba(255, 255, 255, 0.1);
+    --card-hover-transform: -5px;
+    --card-transition-speed: 0.3s;
+    
+    background: rgba(255, 255, 255, var(--card-bg-opacity));
+    backdrop-filter: blur(5px);
+    border-radius: var(--card-border-radius);
+    border: 1px solid var(--card-border-color);
+    padding: 1rem;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all var(--card-transition-speed) ease;
+}
+
+.card:hover {
+    transform: translateY(var(--card-hover-transform));
+    --card-bg-opacity: 0.3;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    color: #ff00aa;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.text-muted {
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+/* Make sure footer sticks right after contact */
+app-footer {
+    margin-top: 0;
+}
+
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
