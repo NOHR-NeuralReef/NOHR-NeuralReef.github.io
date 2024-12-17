@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/Organization">
 <head>
-  <!-- Dehydrated data must load first -->
-  <script src="assets/js/dehydrate.js"></script>
+  <!-- Force HTTPS -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src https: 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    
+    <!-- Base href must be first -->
+    <base href="https://nohr.com/">
+    
+    <!-- Load scripts with explicit HTTPS -->
+    <script src="https://nohr.com/assets/js/dehydrate.js"></script>
     
     <!-- Initialize data structure first -->
-  <script src="assets/js/init-data.js"></script>
+    <script src="assets/js/init-data.js"></script>
     
     <!-- Load data first -->
     <script src="assets/data.min.js"></script>
@@ -217,7 +223,6 @@
 
     <meta charset="UTF-8">
     <meta name="robots" content="all">
-    <base href="/NOHR-NeuralReef.github.io/">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -228,7 +233,7 @@
     <meta name="msapplication-TileImage" content="assets/images/neural-reef-144x144.png">
     
     <!-- Animation and Effects -->
-    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="https://nohr.com/assets/css/animate.min.css">
     
     <!-- Primary Meta Tags -->
     <title>NOHR Neural Reef - Personal AI Freedom</title>
@@ -284,6 +289,8 @@
       ]
     }
     </script>
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 <body>
     <noscript>Please enable JavaScript to use this application. A text-only version is coming soon.</noscript>

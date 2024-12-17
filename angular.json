@@ -25,13 +25,14 @@
               "src/favicon-16x16.png",
               "src/favicon-32x32.png",
               "src/CNAME",
-              "src/.nojekyll"
+              "src/.htaccess"
             ],
             "styles": [
               "src/styles.css"
             ],
             "scripts": [],
-            "baseHref": "/NOHR-NeuralReef.github.io/"
+            "baseHref": "https://nohr.com/",
+            "deployUrl": "https://nohr.com/"
           },
           "configurations": {
             "production": {
