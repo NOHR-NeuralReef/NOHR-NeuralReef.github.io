@@ -73,4 +73,4 @@ export default data;
 
 interface Window {
     data: typeof data;
-} 
+}
