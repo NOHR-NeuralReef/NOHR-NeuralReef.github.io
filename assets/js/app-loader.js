@@ -117,7 +117,14 @@ window.addEventListener('load', async () => {
                 if (leftSection) leftSection.style.transform = 'translateX(-100%)';
                 if (rightSection) rightSection.style.transform = 'translateX(100%)';
                 setTimeout(() => {
-                    loader.remove();
+                    if (loader && loader.parentNode) {
+                        loader.parentNode.removeChild(loader);
+                        console.log('Loader removed from DOM');
+                    }
+                    // Force remove any remaining loader sections
+                    document.querySelectorAll('.loader-section').forEach(section => {
+                        section.parentNode?.removeChild(section);
+                    });
                 }, 500);
             }
         }, 8000);
