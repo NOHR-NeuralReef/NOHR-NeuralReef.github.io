@@ -2,6 +2,10 @@
 window.addEventListener('load', async () => {
     try {
         console.log('App loader started');
+        // Check if we're running locally
+        const isLocal = window.location.hostname === 'localhost';
+        const baseUrl = isLocal ? '' : 'https://nohr.com';
+
         // Check if data is loaded
         if (!window.data) {
             console.error('Data not loaded!');
@@ -15,12 +19,76 @@ window.addEventListener('load', async () => {
         if (typeof particlesJS !== 'undefined') {
             particlesJS('particles-js', {
                 particles: {
-                    number: { value: 80 },
-                    color: { value: '#ff00aa' },
-                    shape: { type: 'circle' },
-                    opacity: { value: 0.5 },
-                    size: { value: 3 }
-                }
+                    number: { 
+                        value: 80,
+                        density: { enable: true, value_area: 1000 }
+                    },
+                    color: { 
+                        value: "#ff00aa"  // Pink color
+                    },
+                    shape: { 
+                        type: "circle",
+                        stroke: {
+                            width: 2,
+                            color: "#ff00aa"
+                        }
+                    },
+                    opacity: {
+                        value: 0.8,
+                        random: false
+                    },
+                    size: {
+                        value: 4,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#ff00aa",  // Pink lines
+                        opacity: 0.6,
+                        width: 1,
+                        shadow: {
+                            enable: true,
+                            color: "#ff00aa",
+                            blur: 5
+                        }
+                    },
+                    move: {
+                        enable: true,
+                        speed: 3,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "bounce",
+                        bounce: true
+                    }
+                },
+                interactivity: {
+                    detect_on: "window",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "grab"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 200,
+                            line_linked: {
+                                opacity: 0.8
+                            }
+                        },
+                        push: {
+                            particles_nb: 3
+                        }
+                    }
+                },
+                retina_detect: true
             });
         } else {
             console.error('particlesJS not loaded');

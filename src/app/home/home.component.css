@@ -8,6 +8,9 @@
     overflow: hidden;
     background-color: transparent;
     opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Home Content */
@@ -88,4 +91,12 @@
     background-color: transparent;
     opacity: 1;
     pointer-events: all;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+/* Make sure content stays on top of particles */
+.home-center {
+    position: relative;
+    z-index: 11;
 }

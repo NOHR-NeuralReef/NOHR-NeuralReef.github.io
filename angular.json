@@ -49,7 +49,9 @@
                   "maximumError": "15kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "https://nohr.com/",
+              "deployUrl": "https://nohr.com/"
             },
             "development": {
               "buildOptimizer": false,
@@ -57,7 +59,8 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "baseHref": "/"
             }
           },
           "defaultConfiguration": "production"

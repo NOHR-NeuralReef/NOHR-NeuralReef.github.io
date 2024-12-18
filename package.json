@@ -21,6 +21,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "npm run copy-assets && ng build --configuration production --base-href=https://nohr.com/",
+    "build:local": "npm run copy-assets && ng build --configuration development --base-href=/",
     "deploy": "npx angular-cli-ghpages --dir=dist --no-silent",
     "copy-assets": "mkdir -p src/assets/css && cp node_modules/animate.css/animate.min.css src/assets/css/",
     "watch": "ng build --watch --configuration development",
